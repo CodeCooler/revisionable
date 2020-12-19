@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 /*
  * This file is part of the Revisionable package by Venture Craft
  *
@@ -154,7 +155,7 @@ class Revisionable extends Eloquent
 
             if (count($revisions) > 0) {
                 $revision = new Revision;
-                \DB::table($revision->getTable())->insert($revisions);
+                DB::table($revision->getTable())->insert($revisions);
             }
         }
     }
@@ -187,7 +188,7 @@ class Revisionable extends Eloquent
             );
 
             $revision = new Revision;
-            \DB::table($revision->getTable())->insert($revisions);
+            DB::table($revision->getTable())->insert($revisions);
 
         }
     }
@@ -211,7 +212,7 @@ class Revisionable extends Eloquent
                 'updated_at' => new \DateTime(),
             );
             $revision = new \Venturecraft\Revisionable\Revision;
-            \DB::table($revision->getTable())->insert($revisions);
+            DB::table($revision->getTable())->insert($revisions);
         }
     }
 
